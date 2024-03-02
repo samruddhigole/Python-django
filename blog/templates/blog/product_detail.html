@@ -1,0 +1,23 @@
+{% extends 'blog/base2.html' %}
+
+{% block content %}
+    <article class="post">
+        <aside class="actions">
+            {% if user.is_authenticated %}
+                <a class="btn btn-secondary" href="{% url 'product_detail' pk=post.pk %}">
+                    {% include './icons/pencil-fill.svg' %}
+                </a>
+            {% endif %}
+        </aside>
+        {% if post.product_name %}
+            <time class="name">
+                {{ post.product_name }}
+            </time>
+        {% endif %}
+        <!-- <h2>{{ post.product_price }}</h2> -->
+        <p>{{ post.product_price|linebreaksbr }}</p>
+        <p>{{ post.sort_order|linebreaksbr }}</p>
+        <p>{{ post.warrenty|linebreaksbr }}</p>
+                
+    </article>
+{% endblock %}

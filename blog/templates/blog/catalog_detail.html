@@ -1,0 +1,21 @@
+{% extends 'blog/base2.html' %}
+
+{% block content %}
+    <article class="post">
+        <!-- <aside class="actions">
+            {% if user.is_authenticated %}
+                <a class="btn btn-secondary" href="{% url 'post_edit' pk=post.pk %}">
+                    {% include './icons/pencil-fill.svg' %}
+                </a>
+            {% endif %}
+        </aside> -->
+        {% if post.catalog_name %}
+            <time class="name">
+                {{ post.catalog_name }}
+            </time>
+        {% endif %}
+        <h2><a href="/post/products">{{ post.catalog_Desc }}</h2></a>
+        <p>{{ post.sort_order|linebreaksbr }}</p>
+        
+    </article>
+{% endblock %}
